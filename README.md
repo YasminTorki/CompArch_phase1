@@ -1,1 +1,2 @@
-# CompArch_phase1
+# Cpu Design
+20bit cpu design using logisim 

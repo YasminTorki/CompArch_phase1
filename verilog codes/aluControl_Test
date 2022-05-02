@@ -1,0 +1,60 @@
+`timescale 1ns / 1ps
+
+////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:
+//
+// Create Date:   05:08:31 05/02/2022
+// Design Name:   alucontrol
+// Module Name:   F:/Daneshgah/term 4/memary/cpu/alucontrol/alucontrol_test.v
+// Project Name:  alucontrol
+// Target Device:  
+// Tool versions:  
+// Description: 
+//
+// Verilog Test Fixture created by ISE for module: alucontrol
+//
+// Dependencies:
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+////////////////////////////////////////////////////////////////////////////////
+
+module alucontrol_test;
+
+	// Inputs
+	reg [3:0] func;
+	reg [2:0] aluop;
+
+	// Outputs
+	wire [2:0] opselector;
+
+	// Instantiate the Unit Under Test (UUT)
+	alucontrol uut (
+		.func(func), 
+		.aluop(aluop), 
+		.opselector(opselector)
+	);
+
+	initial begin
+		// Initialize Inputs
+		func = 3;
+		aluop = 4;
+
+		// Wait 100 ns for global reset to finish
+		#100;
+		func =4;
+		aluop=2;
+		#100
+       
+		 aluop=1;
+		 func=10;
+		 
+		// Add stimulus here
+
+	end
+      
+endmodule
+

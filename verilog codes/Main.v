@@ -43,13 +43,13 @@ instructionmemory insmem( pc , ins, clk);
 		 wire    reg_write_en;
  wire  [3:0] reg_write_dest; 
  wire  [15:0] reg_write_data;
-		RegisterFile rgfile(clk,reg_write,instruction[15:12],data,instruction[11:8],out1 ,instruction[7:4],out2);
+		RegisterFile rgfile(clk,reg_write,instruction[15:12],data,instruction[11:8],reg_read_data_1 ,instruction[7:4],reg_read_data_2);
 		wire [2:0]opsc;
 
 		ALu_control aluc(instruction[3:0],alu_op,opsc);
 		wire [15:0] out;
 aluu alu(reg_read_data_1,reg_read_data_2,opsc,out);
-dataMemory datmem(clk,out,out2,mem_read,mem_write,data);
+dataMemory datmem(clk,out,reg_read_data_2,mem_read,mem_write,data);
 
 
 endmodule
